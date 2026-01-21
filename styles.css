@@ -154,11 +154,11 @@ h1 {
 
 .carousel-group {
   display: flex;
-  animation: spin 100s infinite linear;
+  animation: spin 50s infinite linear;
 }
 
 .carousel-img {
-  flex: 0 0 5em;
+  flex: 0 0 200px;
   height: 100%;
 }
 
