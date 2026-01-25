@@ -142,24 +142,26 @@ h1 {
   font-size: var(--step-5);
 }
 
-.carousel-container {
+.slider-container {
   height: 90vh;
   display: flex;
   overflow-x: auto;
 }
 
-.carousel-container::-webkit-scrollbar {
+.slider-container::-webkit-scrollbar {
   display: none;
 }
 
-.carousel-group {
+.slider-group {
   display: flex;
-  animation: spin 50s infinite linear;
+  align-items: center;
+  justify-content: center;
+  animation: spin 40s infinite linear;
 }
 
-.carousel-img {
-  flex: 0 0 200px;
-  height: 100%;
+.slide {
+  flex: 0 0 100vw;
+  align-content: center;
 }
 
 @keyframes spin {
