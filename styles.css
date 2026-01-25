@@ -156,7 +156,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: spin 40s infinite linear;
+  animation: spin 20s infinite linear;
 }
 
 .slide {
