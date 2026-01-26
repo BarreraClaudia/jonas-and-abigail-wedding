@@ -90,6 +90,7 @@ li {
 
 a {
   text-decoration: none;
+  display: inline-block;
 }
 
 /*
@@ -118,6 +119,28 @@ Font size variables
   --step-5: clamp(2.4883rem, 2.1869rem + 1.5072vw, 3.8147rem);
 }
 
+h1 {
+  font-size: var(--step-5);
+}
+
+h2 {
+  font-size: var(--step-2);
+}
+
+h3 {
+  font-size: var(--step-1);
+}
+
+p,
+a {
+  font-size: var(--step-0);
+}
+
+footer a,
+footer p {
+  font-size: var(--step--2);
+}
+
 /*
 ---------------
 Layout
@@ -125,8 +148,9 @@ Layout
 */
 
 body {
-  color: black;
+  color: #101010;
   background-color: #f5f5f5;
+  font-family: 'Oranienbaum', serif;
 }
 
 h1 {
@@ -139,31 +163,12 @@ h1 {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-size: var(--step-5);
 }
 
 .slider {
   height: 100vh;
   width: 100%;
   position: relative;
-}
-
-@keyframes fade {
-  0% {
-    opacity: 1;
-  }
-
-  33% {
-    opacity: 0;
-  }
-
-  67% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
 }
 
 .slider img {
@@ -186,4 +191,129 @@ h1 {
 
 .slider .slide-3 {
   animation-delay: 6s;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+
+  33% {
+    opacity: 0;
+  }
+
+  67% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.save-the-date {
+  height: 400px;
+  align-content: center;
+  background-color: #101010;
+}
+
+.save-the-date p {
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--step-5);
+  text-align: center;
+  color: #f5f5f5;
+}
+
+.save-the-date p:nth-of-type(2) {
+  font-family: 'Kapakana', cursive;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  text-align: center;
+  place-items: center;
+}
+
+.grid-img-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.grid-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wedding-info-link {
+  padding: 0.25rem 1rem;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #5c5c5c;
+  color: #101010;
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
+}
+
+.wedding-info-link:hover {
+  transform: translateY(-3px);
+}
+
+.icon {
+  width: 50px;
+}
+
+.locations,
+.rsvp,
+.hotels {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.church,
+.reception,
+.hotel-1,
+.hotel-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.rsvp {
+  gap: 1rem;
+}
+
+.rsvp p {
+  max-width: 50ch;
+}
+
+.rsvp .icon {
+  margin-top: 1rem;
+}
+
+.hotels h3 {
+  font-weight: normal;
+}
+
+footer {
+  padding: 1rem;
+  text-align: center;
+  color: #f5f5f5;
+  background-color: #101010;
+}
+
+footer a {
+  color: #f5f5f5;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
