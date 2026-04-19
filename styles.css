@@ -119,10 +119,6 @@ Font size variables
   --step-5: clamp(2.4883rem, 2.1869rem + 1.5072vw, 3.8147rem);
 }
 
-h1 {
-  font-size: var(--step-5);
-}
-
 h2 {
   font-size: var(--step-2);
 }
@@ -153,62 +149,102 @@ body {
   font-family: 'Oranienbaum', serif;
 }
 
-h1 {
-  height: 10vh;
-  padding: 0.5rem;
-  align-content: center;
-  text-align: center;
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition:
+    background 440ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 440ms cubic-bezier(0.16, 1, 0.3, 1);
+}
 
+header.scrolled {
+  background: rgba(10, 10, 10, 0.95);
+  border-bottom-color: rgba(255, 255, 255, 0.07);
+}
+
+h1 {
   font-family: 'Kapakana', cursive;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  font-size: var(--step-3);
+}
+
+header.scrolled h1 {
+  color: #f5f5f5;
 }
 
 .slider {
-  height: 100vh;
+  height: 100svh;
   width: 100%;
   position: relative;
+  overflow: hidden;
+  background: #101010;
 }
 
-.slider img {
+.slider .slide {
   width: 100%;
   height: 100%;
   object-fit: cover;
   position: absolute;
-  top: 0;
-  left: 0;
-  animation: fade 9s ease-in-out infinite alternate;
+  inset: 0;
+  opacity: 0;
+  /* 3 slides × 6 s = 18 s cycle. Each slide fades in (1.5 s), holds, fades out (1.5 s). */
+  animation: slide-fade 18s ease-in-out infinite;
+  will-change: opacity;
 }
 
 .slider .slide-1 {
   animation-delay: 0s;
 }
-
 .slider .slide-2 {
-  animation-delay: 3s;
-}
-
-.slider .slide-3 {
   animation-delay: 6s;
 }
+.slider .slide-3 {
+  animation-delay: 12s;
+}
 
-@keyframes fade {
+@keyframes slide-fade {
   0% {
+    opacity: 0;
+  }
+  8.33% {
     opacity: 1;
-  }
-
-  33% {
+  } /* fade in done */
+  25% {
+    opacity: 1;
+  } /* hold */
+  41.67% {
     opacity: 0;
-  }
-
-  67% {
-    opacity: 0;
-  }
-
+  } /* fade out done */
   100% {
-    opacity: 1;
+    opacity: 0;
   }
+}
+
+/* Vignette */
+.slider::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 
 .save-the-date {
@@ -221,9 +257,27 @@ h1 {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  font-size: var(--step-5);
   text-align: center;
   color: #f5f5f5;
+}
+
+.save-the-date .std-eyebrow {
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+.save-the-date .std-heading {
+  font-size: var(--step-5);
+  line-height: 1.05;
+}
+
+.std-divider {
+  margin: 2rem auto;
+  width: 80px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
 }
 
 #confetti-container {
@@ -339,21 +393,59 @@ h1 {
   background-position: bottom;
 }
 
+.countdown .i-do {
+  font-size: var(--step--2);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+}
+
+.countdown h2 {
+  font-family: 'Kapakana', cursive;
+  font-size: var(--step-5);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
 .timebox {
   display: flex;
   gap: 1rem;
 }
 
-.countdown h2 {
-  font-size: var(--step-5);
-}
-
 .countdown h3 {
   font-size: var(--step-4);
+  font-family: 'Kapakana', cursive;
+  font-weight: 400;
+  letter-spacing: 0.04em;
 }
 
 .countdown p {
-  font-size: var(--step-1);
+  font-size: var(--step--2);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: min(300px, 80%);
+  margin-bottom: 0.5rem;
+}
+
+.ornament::before,
+.ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.ornament-diamond {
+  width: 6px;
+  height: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  transform: rotate(45deg);
+  flex-shrink: 0;
 }
 
 footer {

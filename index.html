@@ -19,17 +19,20 @@
 
 <body>
 
-    <h1>Jonas & Abigail</h1>
+    <header>
+        <h1>Jonas & Abigail</h1>
+    </header>
 
     <div class="slider">
-        <img src="./assets/imgs/DSC00855.jpg" alt="couple dancing" class="slide-1">
-        <img src="./assets/imgs/DSC00944.jpg" alt="couple hugging" class="slide-2">
-        <img src="./assets/imgs/DSC01054.jpg" alt="couple holding hands" class="slide-3">
+        <img src="./assets/imgs/DSC00855.jpg" alt="couple dancing" class="slide slide-1">
+        <img src="./assets/imgs/DSC00944.jpg" alt="couple hugging" class="slide slide-2">
+        <img src="./assets/imgs/DSC01054.jpg" alt="couple holding hands" class="slide slide-3">
     </div>
 
     <div class="save-the-date" id="confetti-container">
-        <p>Save the Date</p>
-        <p>July 10, 2026</p>
+        <p class="std-eyebrow">Save the Date</p>
+        <div class="std-divider"></div>
+        <p class="std-heading">July 10, 2026</p>
 
         <canvas id="confetti-canvas"></canvas>
     </div>
@@ -103,7 +106,13 @@
     </div>
 
     <div class="countdown">
+        <p class="i-do">Until we say I do</p>
         <h2>The Countdown</h2>
+
+        <div class="ornament" aria-hidden="true">
+            <div class="ornament-diamond"></div>
+        </div>
+
         <div class="timebox">
             <div class="time">
                 <h3 id="days">00</h3>
@@ -131,6 +140,7 @@
 
     <script src="./js/confetti.js"></script>
     <script src="./js/countdown.js"></script>
+    <script src="./js/scroll.js"></script>
 </body>
 
 </html>
