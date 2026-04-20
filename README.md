@@ -13,7 +13,7 @@ A static wedding website for Jonas & Abigail, hosted at [jonas-and-abigail.com](
 ├── assets/
 │   └── imgs/           # Wedding photos + icon PNGs
 └── js/
-    ├── confetti.js     # Heart confetti bursts on the Save the Date section
+    ├── confetti.js     # Heart confetti falls from the top
     ├── countdown.js    # Live countdown timer to July 10, 2026
     └── scroll.js       # Header scroll effect + scroll-reveal observer
 ```
@@ -43,7 +43,7 @@ All animations respect `prefers-reduced-motion` via the CSS reset.
 - **Photo tiles** — zoom gently on hover
 - **CTA buttons** — lift + shadow deepen on hover
 - **Countdown seconds** — brief scale pulse on every tick
-- **Heart confetti** — bursts from both bottom corners on page load, then every 5 seconds
+- **Heart confetti** — heart confetti falls from the top
 
 ---
 
