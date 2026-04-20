@@ -1,4 +1,3 @@
-const container = document.getElementById('confetti-container');
 const canvas = document.getElementById('confetti-canvas');
 const myConfetti = confetti.create(canvas, { resize: true });
 
@@ -10,35 +9,37 @@ const heart = confetti.shapeFromPath({
   ],
 });
 
-function launchLeft() {
+function trickle() {
   myConfetti({
-    particleCount: 50,
-    spread: 55,
-    angle: 60,
-    origin: { x: 0, y: 1 },
+    particleCount: 3,
+    spread: 80,
+    startVelocity: 8 + Math.random() * 6,
+    gravity: 0.35,
+    drift: Math.random() * 0.8 - 0.4,
+    ticks: 450,
+    scalar: 0.8 + Math.random() * 1.4,
     shapes: [heart],
     colors: ['#FFF'],
-    scalar: 2,
+    origin: { x: Math.random(), y: -0.05 },
   });
+
+  setTimeout(trickle, 250 + Math.random() * 450);
 }
 
-function launchRight() {
+// Small initial burst so something appears immediately on load
+window.onload = () => {
   myConfetti({
-    particleCount: 50,
-    spread: 55,
-    angle: 120,
-    origin: { x: 1, y: 1 },
+    particleCount: 30,
+    spread: 140,
+    startVelocity: 12,
+    gravity: 0.35,
+    drift: 0,
+    ticks: 450,
+    scalar: 1.2,
     shapes: [heart],
     colors: ['#FFF'],
-    scalar: 2,
+    origin: { x: 0.5, y: -0.05 },
   });
-}
 
-function launchConfetti() {
-  launchLeft();
-  launchRight();
-}
-
-setInterval(launchConfetti, 5000);
-
-window.onload = launchConfetti;
+  trickle();
+};
