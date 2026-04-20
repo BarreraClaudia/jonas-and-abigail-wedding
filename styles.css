@@ -370,41 +370,105 @@ header.scrolled h1 {
 .hotel-2 {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .rsvp {
   gap: 1rem;
 }
+
 .rsvp p {
   max-width: 50ch;
+  color: var(--clr-mid);
+  line-height: 1.7;
 }
+
 .rsvp .icon {
   margin-top: 1rem;
-}
-.hotels h3 {
-  font-weight: normal;
 }
 
 .icon {
   width: 50px;
 }
 
+/* Section titles */
+.locations h2,
+.rsvp h2,
+.hotels h2 {
+  font-family: 'Kapakana', cursive;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  font-size: var(--step-3);
+  margin-bottom: 0.25rem;
+}
+
+/* Venue / hotel names */
+.church p,
+.reception p,
+.hotel-1 h3,
+.hotel-2 h3 {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--clr-mid);
+  font-size: var(--step-0);
+}
+
+/* Times */
+.church h3,
+.reception h3 {
+  font-size: var(--step--1);
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--clr-mid);
+}
+
+.hotels h3 {
+  font-weight: normal;
+}
+
+/* Thin dividers */
+.church,
+.hotel-1 {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  width: 100%;
+}
+
 /* CTA links */
 .wedding-info-link {
-  padding: 0.25rem 1rem;
-  border-radius: 5px;
-  box-shadow: 0 0 5px var(--clr-mid);
+  padding: 0.4rem 1.4rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   color: var(--clr-dark);
-  font-weight: bold;
+  font-size: var(--step--1);
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   transition:
-    transform 0.3s var(--ease-out-expo),
-    box-shadow 0.3s var(--ease-out-expo);
+    border-color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    background 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .wedding-info-link:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  background: var(--clr-dark);
+  border-color: var(--clr-dark);
+  color: #faf8f6;
+  transform: translateY(-2px);
+}
+
+.panel-divider {
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 0, 0, 0.2),
+    transparent
+  );
+  margin: 0 auto;
 }
 
 /* ============================================================
